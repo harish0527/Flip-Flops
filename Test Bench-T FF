@@ -1,0 +1,21 @@
+module tff_tb;
+reg t, clk,rst;
+wire Q;
+
+tff t1 (t,clk,Q,rst);
+
+initial
+begin
+    clk = 0;
+    forever #5 clk = ~clk;
+end
+
+initial
+begin
+    t = 0;rst=1;
+    #10 t = 1;rst=0;
+    #10 t = 0;
+    #10 t = 1;
+    #10 t = 0;
+    #10;$finish;
+end
