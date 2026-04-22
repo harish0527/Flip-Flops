@@ -1,0 +1,15 @@
+module tff(t,clk,Q,rst);
+input t;
+input rst;
+input clk;
+output reg Q;
+
+always @(posedge clk)
+begin
+if(rst)
+Q<=0;
+else
+Q <= ~t;
+end
+
+endmodule
