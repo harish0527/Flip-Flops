@@ -1,0 +1,19 @@
+module srff(s,r,clk,rst,Q);
+input s,r;
+input rst;
+input clk;
+output reg Q;
+
+always @(posedge clk)
+begin
+if(rst)
+Q<=0;
+else
+case({s,r})
+2'b00:Q=1'b0;
+2'b01:Q=1'b0;
+2'b10:Q=1'b1;
+2'b11:Q=1'bx;
+endcase
+end
+endmodule
