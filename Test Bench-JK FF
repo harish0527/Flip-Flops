@@ -1,0 +1,24 @@
+module jkff_tb;
+reg j,k, clk,rst;
+wire Q;
+
+jkff j1 (j,k,clk,rst,Q);
+
+initial
+begin
+    clk = 0;
+    forever #5 clk = ~clk;
+end
+
+initial
+begin
+    j = 0;k=0;rst=1;
+    #10 j = 0;k=0;rst=0;
+    #10 j = 0;k=1;
+    #10 j = 1;k=0;
+    #10 j = 1;k=1;
+    #10;$finish;
+end
+initial
+$display("j=%b,k=%b,Q=%b",j,k,Q);
+endmodule
